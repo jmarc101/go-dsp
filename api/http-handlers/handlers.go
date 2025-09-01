@@ -5,11 +5,10 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/jmarc101/go-dsp/internal/auction"
-	"github.com/jmarc101/go-dsp/pkg/openrtb"
 )
 
 func AuctionHandler(c *gin.Context) {
-	var req openrtb.BidRequest
+	var req auction.BidRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Can't decode request"})
 		return
